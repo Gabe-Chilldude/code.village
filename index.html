@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        async function test(component)
+        {
+            component = "../template/" + component + ".html";
+            const req = await fetch(component);
+            const page = await req.text();
+            document.body.insertAdjacentHTML("beforeend", page);
+        }
+        var h1 = document.createElement("h1");
+        h1.innerHTML = 'Olá mundo';
+        document.body.insertAdjacentElement("afterbegin", h1);
+        test("hello");
+    </script>
+</body>
+</html>
